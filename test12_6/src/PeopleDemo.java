@@ -1,6 +1,4 @@
 public class PeopleDemo {
-    
-
     public static  void main(String[] args){
 
         People person=new People("型老太太",80,100);
@@ -12,7 +10,5 @@ public class PeopleDemo {
         System.out.println(person.toString());
         System.out.println(person.getAge());
     }
-
-
 }
 

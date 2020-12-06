@@ -32,7 +32,7 @@ import java.io.IOException;
 
 
 public class FileCreateAndDelDemo{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         File file=new File("Hello.txt");
         File dir=new File("\\creatDir");
         System.out.println("文件是否存在："+file.exists());
