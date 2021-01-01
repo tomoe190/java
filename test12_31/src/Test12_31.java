@@ -23,14 +23,27 @@ public class Test12_31 {
 //        }
 
         //阶乘求和
+//        int result=0;
+//        for (int num = 1; num <=5; num++) {
+//            int factorResult=1;
+//            for (int j = 1; j <=num; j++) {
+//                factorResult*=j;
+//            }
+//            result+=factorResult;
+//        }
+//        System.out.println(result);
         int result=0;
         for (int num = 1; num <=5; num++) {
-            int factorResult=1;
-            for (int j = 1; j <=num; j++) {
-                factorResult*=j;
-            }
-            result+=factorResult;
+            result+=factor(num);
         }
         System.out.println(result);
+    }
+
+    public static int factor(int num) {
+        int result=1;
+        for (int i = 1; i <=num; i++) {
+            result*=i;
+        }
+        return result;
     }
 }
