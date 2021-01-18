@@ -19,6 +19,7 @@ public class Cat {
 //        return this.name + "," + this.gender;
 //    }
 
+
     @Override
     public String toString() {
         return "Cat{" +
