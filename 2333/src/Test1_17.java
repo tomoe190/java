@@ -1,7 +1,23 @@
+
+
 import java.util.Arrays;
 
 public class Test1_17 {
-    public static void main(String[] args) {
+    static int cnt = 6;
+    static{
+        cnt += 9;
+    }
+    public static void main(String[] args){
+        System.out.println("cnt =" + cnt);
+    }
+    static{
+        cnt /=3;
+    };
+
+
+
+//            System.out.println(new Test1_19());
+
 //        int[] arr = {1,1,2,2,5,5,12,12,8,4,4,6,6};
 //        int onlyOneNumber = onlyOne(arr);
 //        System.out.println(onlyOneNumber);
@@ -22,15 +38,15 @@ public class Test1_17 {
 //        int[] arr = {0,2,3,4,10,8,9};
 //        System.out.println(isIncrease(arr));
 
-        int[] arr = {2,3,6,10,11,18,21,44,56,81,99};
-//        int index = searchNumber(arr,11);
-//        System.out.println(index);
-//        int[] arr2 = copyOf(arr);
-//        System.out.println(Arrays.toString(arr2));
+//        int[] arr = {2,3,6,10,11,18,21,44,56,81,99};
+////        int index = searchNumber(arr,11);
+////        System.out.println(index);
+////        int[] arr2 = copyOf(arr);
+////        System.out.println(Arrays.toString(arr2));
+//
+//        String arrToString = toString(arr);
+//        System.out.println(arrToString);
 
-        String arrToString = toString(arr);
-        System.out.println(arrToString);
-    }
 
     private static String toString(int[] arr) {
         String result = "[";
