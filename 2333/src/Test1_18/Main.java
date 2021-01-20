@@ -16,8 +16,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        func2();
-
+//        func2();
+        A a = new A();
 
 //        A a = new A(){
 //          // 定义一些属性和方法

@@ -8,6 +8,14 @@ public class A {
 //        A a = new A();
 //        System.out.println(a.num);
 //    }
-    String str = "hello";
+//    String str = "hello";
+    static public int num = 100;
+    static public String str = "hello";
+    public int num2 = 200;
+
+    public void func(){
+
+    }
+
 
 }
