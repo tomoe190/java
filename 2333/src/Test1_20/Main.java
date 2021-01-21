@@ -10,6 +10,7 @@ public class Main {
 //        Cat cat = new Cat("团子");
 //        animal = (Animal)cat;
 
-        Animal animal = new Cat("团子");
+        new Cat();
+        new Animal();
     }
 }
