@@ -9,6 +9,7 @@ public class Test {
 //        if (animal2 instanceof Cat) {
 //            Cat cat2 = (Cat)animal2;
 //        }
-        
+        Shape shape1 = new Circle();
+        Shape shape2 = new Flower();
     }
 }

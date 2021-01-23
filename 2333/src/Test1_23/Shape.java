@@ -1,7 +1,9 @@
 package Test1_23;
 
-public class Shape {
-    public void draw(){
+//abstract  public class Shape {
+//    abstract public void draw();
+//}
 
-    }
+interface Shape{
+
 }
