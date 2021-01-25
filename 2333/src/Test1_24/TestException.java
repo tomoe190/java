@@ -3,7 +3,7 @@ package Test1_24;
 import java.util.Scanner;
 
 public class TestException {
-//    public static void main(String[] args) {
+    public static void main(String[] args) {
 //        int a = 10;
 //        int b = 0;
 //        System.out.println(a / b);
@@ -43,21 +43,15 @@ public class TestException {
 //        } catch (ArrayIndexOutOfBoundsException e){
 //            System.out.println("数组下标越界异常");
 //        }
+//        ((TestException) null).testMethod();
+        
 
+    }
+    private static void testMethod() {
 
-//    }
+        System.out.println("testMethod");
 
-
-
-        private static void testMethod() {
-
-            System.out.println("testMethod");
-
-        }
-
-        public static void main(String[] args) {
-            ((TestException) null).testMethod();
-        }
+    }
 
 //    public static void func1(){
 //        try {
@@ -71,5 +65,5 @@ public class TestException {
 //            int[] a = {1,2,3};
 //            System.out.println(a[100]);
 //    }
-    }
-//}
+
+}
