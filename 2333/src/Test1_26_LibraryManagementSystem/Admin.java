@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Admin extends User{
 
-    public Admin(String name, IOperation[] operations) {
+    public Admin(String name) {
         this.name = name;
         this.operations = new IOperation[]{
                 new AddOperation(),

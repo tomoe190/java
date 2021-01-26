@@ -15,4 +15,8 @@ abstract public class User {
     // 不同的用户支持的操作不一样，菜单的内容也不一样
     // 此处就做成抽象方法，再由该类的子类来进一步的重写这样的方法
     public abstract int menu();
+
+    public void doOperation(int choice,BookList bookList){
+        this.operations[choice - 1].work(bookList);
+    }
 }
