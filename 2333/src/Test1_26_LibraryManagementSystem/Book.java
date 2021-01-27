@@ -17,4 +17,27 @@ public class Book {
         this.price = price;
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", isBorrowed=" + isBorrowed +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isBorrowed() {
+        return isBorrowed;
+    }
+
+    public void setBorrowed(boolean borrowed) {
+        isBorrowed = borrowed;
+    }
 }

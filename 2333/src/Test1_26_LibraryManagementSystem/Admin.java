@@ -20,7 +20,7 @@ public class Admin extends User{
     @Override
     public int menu() {
         System.out.println("*********************");
-        System.out.println("Hello! " + ",欢迎使用！");
+        System.out.println("Hello! " + name + ",欢迎使用！");
         System.out.println(" 1. 新增书籍信息 ");
         System.out.println(" 2. 删除书籍信息 ");
         System.out.println(" 3. 打印书籍列表 ");

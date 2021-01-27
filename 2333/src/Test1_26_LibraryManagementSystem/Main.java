@@ -1,12 +1,13 @@
 package Test1_26_LibraryManagementSystem;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         // 1 准备书籍数据
         BookList bookList = new BookList();
-        // 2 创建用户
+        // 2 创建用户（确认身份）
         User user = login();
         // 3 主循环
         while(true){
@@ -29,5 +30,6 @@ public class Main {
             return new Admin(name);
         }
         return new NormalUser(name);
+
     }
 }

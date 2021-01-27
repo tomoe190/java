@@ -17,6 +17,7 @@ abstract public class User {
     public abstract int menu();
 
     public void doOperation(int choice,BookList bookList){
+        // 多态
         this.operations[choice - 1].work(bookList);
     }
 }

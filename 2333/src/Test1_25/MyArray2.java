@@ -1,14 +1,14 @@
 package Test1_25;
 
-public class MyArray2<E extends Animal> {
-    private E[] data = null;
+public class MyArray2<E> {
+    private Object[] data = null;
     private int size = 0;
     private int capacity = 10;
 
     public MyArray2() {
         // 错误
 //        data = new E[capacity];
-        data = (E[])new Object[capacity];
+        data = new Object[capacity];
     }
 
     public void add(E data){
@@ -18,7 +18,7 @@ public class MyArray2<E extends Animal> {
         this.data[size++] = data;
     }
 
-    public E get(int index){
+    public Object get(int index){
         return this.data[index];
     }
 
@@ -32,8 +32,8 @@ public class MyArray2<E extends Animal> {
 //        myArray3.add(2);
 //        Integer ret = myArray3.get(0);
 
-        MyArray2<Animal> myArray2 = new MyArray2<>();
-        MyArray2<Cat> myArray21 = new MyArray2<>();
+//        MyArray2<Animal> myArray2 = new MyArray2<>();
+//        MyArray2<Cat> myArray21 = new MyArray2<>();
         }
 
     }
