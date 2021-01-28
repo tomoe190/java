@@ -20,8 +20,6 @@ public class BookList {
         size = 4;
     }
 
-
-
     // 后面针对其中的某一本书进行操作
     // 虽然有些属性是private 修饰的，但不意味着外部不能用
     // 通过 public 修饰的方法来 获取/操作 这样的属性
