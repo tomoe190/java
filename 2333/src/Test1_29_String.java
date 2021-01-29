@@ -22,5 +22,8 @@ public class Test1_29_String {
 //        System.out.println(a == b);
 
         String a = "hello";
+
+        // 获取到 String 的类对象
+        String.class
     }
 }
