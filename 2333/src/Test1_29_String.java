@@ -70,8 +70,8 @@ public class Test1_29_String {
 
         //字节=>字符串
         // 把字符串的内容拷贝一份，放到字节数组中
-//        String s = "hello";
-//        s.getBytes();
+        String s = "hello";
+        s.getBytes();
 
 //        String a = "Hello";
 //        String b = "hallo";
@@ -114,10 +114,12 @@ public class Test1_29_String {
 //        String b = "hello";
 //        System.out.println(a.lastIndexOf(b));
 
-        StringBuilder stringBuilder = new StringBuilder("hello");
-        stringBuilder.reverse();
-        System.out.println(stringBuilder.toString());
-        stringBuilder.delete(2,4);
-        stringBuilder.insert(2,"world");
+//        StringBuilder stringBuilder = new StringBuilder("hello");
+//        stringBuilder.reverse();
+//        System.out.println(stringBuilder.toString());
+//        stringBuilder.delete(2,4);
+//        stringBuilder.insert(2,"world");
+
+
     }
 }
