@@ -2,6 +2,20 @@ public class Test2_1 {
     public static void main(String[] args) {
 
     }
+    public static int fibonacci(int N) {
+        if (N <= 2) {
+            return 1;
+        }
+        return fibonacci(N - 1) + fibonacci(N - 2);
+    }
+
+    public static int factorial(int num) {
+        if(num < 2) {
+            return num;
+        }
+        return factorial(num - 1) * num;
+    }
+
     public static void func4(int N,int M) {
         int count = 0;
         for (int i = 0; i < N ; i++) {
