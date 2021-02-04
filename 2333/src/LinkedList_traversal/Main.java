@@ -1,4 +1,4 @@
-package Test2_3;
+package LinkedList_traversal;
 
 public class Main {
     public static Node createList() {
@@ -6,16 +6,79 @@ public class Main {
         Node b= new Node(2);
         Node c= new Node(3);
         Node d= new Node(4);
+        Node e= new Node(5);
         a.next = b;
         b.next = c;
         c.next = d;
+        d.next = e;
         // 可以不写，因为Node方法将next默认设为null
-        d.next = null;
+        e.next = null;
         return a;
     }
 
     public static void main(String[] args) {
         Node head = createList();
+        System.out.println("(1)打印链表中的每个元素:");
+        for(Node cur = head;cur != null;cur = cur.next) {
+            System.out.print(cur.val);
+        }
+        System.out.println();
+
+        System.out.println("(2)最后一个节点:");
+        Node cur = head;
+        while(cur != null && cur.next != null) {
+            cur = cur.next;
+        }
+        System.out.println(cur.val);
+
+        System.out.println("(3)倒数第 2 个节点：");
+        cur = head;
+        while(cur != null && cur.next.next != null) {
+            cur = cur.next;
+        }
+        System.out.println(cur.val);
+
+        System.out.println("(4)第 N(3) 个节点：");
+        cur = head;
+        int N = 3;
+        for (int i = 1; i < N; i++) {
+            cur = cur.next;
+        }
+        System.out.println(cur.val);
+
+        System.out.println("(5)计算元素个数：");
+        int count = 0;
+        for(cur = head;cur != null;cur = cur.next) {
+            count ++;
+        }
+        System.out.println(count);
+
+        System.out.println("(6)是否包含 ”6“ ：");
+        int toFind = 6;
+        for(cur = head;cur != null;cur = cur.next) {
+            if(cur.val == toFind) {
+                break;
+            }
+        }
+        if(cur != null) {
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+
+        System.out.println("(7)打印倒数第 3 个数");
+        count = 0;
+        for(cur = head;cur != null;cur = cur.next) {
+            count ++;
+        }
+        int minusN = 3;
+        int plusN = count + 1 - minusN;
+        cur = head;
+        for (int i = 1; i < plusN; i++) {
+            cur = cur.next;
+        }
+        System.out.println(cur.val);
+
 
         // 1 遍历链表
 //        for (Node cur = head; cur != null ; cur=cur.next) {
@@ -77,5 +140,7 @@ public class Main {
 //            cur = cur.next;
 //        }
 //        System.out.println(plusN);
+
+
     }
 }

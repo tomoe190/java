@@ -1,4 +1,4 @@
-package Test2_3;
+package LinkedList_traversal;
 
 public class Node {
     public int val;
