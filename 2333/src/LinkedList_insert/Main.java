@@ -72,7 +72,6 @@ public class Main {
         // 时间复杂度 O(1)
 //        toDelete.val = toDelete.next.val;
 //        toDelete.next = toDelete.next.next;
-
     }
 
     public static void remove3(Node head,int index) {
