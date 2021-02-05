@@ -165,10 +165,53 @@ public class Main {
         return size;
     }
 
-    public static void main(String[] args) {
+    // 尾删除
+        public static Node removeTail(Node head) {
+            if(head == null ){
+                return null;
+            }
+            Node prev = head;
+            while (prev.next != null && prev.next.next != null) {
+                prev = prev.next;
+            }
+            prev.next = null;
+            return head;
+        }
+
+        public static Node arrayToLinkedList(int[] arr) {
+            Node head = null;
+            Node tail = null;
+            for (int x : arr) {
+                Node node = new Node(x);
+                if(head == null) {
+                    head = node;
+                    tail = node;
+                }else {
+                    tail.next = node;
+                    tail = tail.next;
+                }
+            }
+            return head;
+        }
+
+    public static Node arrayToLinkedListWitDummy(int[] arr) {
+        Node head = new Node(0);
+        Node tail = head;
+        for(int x : arr) {
+            Node node = new Node(x);
+            tail.next = node;
+            tail = tail.next;
+        }
+        // 返回不带傀儡节点的链表
+        //return head.next;
+        // 返回带傀儡节点的链表
+        return head;
+    }
+
+        public static void main(String[] args) {
 //         无傀儡节点
 //        // 插入到中间位置
-//        Node head = createLinkedList();
+        Node head = createLinkedList();
 //        Node prev = head;
 //        Node newNode = new Node(50);
 //        newNode.next = prev.next;
@@ -206,6 +249,8 @@ public class Main {
 //        traversalWithDummy(head);
 
 
+
+
         // 测试无傀儡节点删除
 //       head = remove1(head,1);
 //       traversal(head);
@@ -221,8 +266,11 @@ public class Main {
 //        head = remove3(head,0);
 //        traversal(head);
 
+//        head = removeTail(head);
+//        traversal(head);
+
         // 测试有傀儡节点的删除
-        Node head = createLinkedListWithDummy();
+//        Node head = createLinkedListWithDummy();
 //        removeWithDummy1(head,5);
 //        traversalWithDummy(head);
 
@@ -234,8 +282,18 @@ public class Main {
 //        removeWithDummy2(head,cur);
 //        traversalWithDummy(head);
 
-        removeWithDummy3(head,6);
-        traversalWithDummy(head);
+//        removeWithDummy3(head,6);
+//        traversalWithDummy(head);
+
+        // 数组转换成链表
+        int[] arr = {2,4,6,8,10,12};
+
+        head = arrayToLinkedList(arr);
+        traversal(head);
+
+        Node head2 = arrayToLinkedListWitDummy(arr);
+        traversalWithDummy(head2);
+
 
     }
 }
