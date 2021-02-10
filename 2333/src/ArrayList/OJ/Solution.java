@@ -1,4 +1,4 @@
-package OJ;
+package ArrayList.OJ;
 
 public class Solution {
     public static ListNode removeElements(ListNode head, int val) {

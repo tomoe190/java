@@ -26,11 +26,11 @@ public class TestArrayList {
 
         // 3 删除
         //   按下标删除
-//        arrayList.remove(1);
-//        System.out.println("按位置删除" + arrayList);
+        arrayList.remove(1);
+        System.out.println("按位置删除" + arrayList);
         //   按内容删除
-//        arrayList.remove("c++");
-//        System.out.println("按值删除：" + arrayList);
+        arrayList.remove("c++");
+        System.out.println("按值删除：" + arrayList);
 
         // 4 查找
         boolean ret = arrayList.contains("java");

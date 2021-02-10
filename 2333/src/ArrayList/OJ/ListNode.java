@@ -1,4 +1,4 @@
-package OJ;
+package ArrayList.OJ;
 
 public class ListNode {
     int val = 0;
