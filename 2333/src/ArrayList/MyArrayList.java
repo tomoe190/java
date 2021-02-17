@@ -62,6 +62,33 @@ public class MyArrayList {
         size ++;
     }
 
+    // 3.按照下标位置删除元素
+    public String remove (int index) {
+        if (index < 0 || index > size) {
+            return null;
+        }
+        String result = data[index];
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+            
+        }
+        return result;
+    }
+
+    // 4.按照元素的值删除
+    public boolean remove (String elem) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(elem)) {
+                for (int j = i;j < size - 1;j++) {
+                    data[j] = data[j + 1];
+                    size --;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     public static void main(String[] args) {
         MyArrayList myArrayList = new MyArrayList();
@@ -69,6 +96,13 @@ public class MyArrayList {
         myArrayList.add("c++");
         myArrayList.add("python");
         myArrayList.add("java");
+        System.out.println(myArrayList);
+
+//        myArrayList.add(2,"Go");
+//        System.out.println(myArrayList);
+
+        String result = myArrayList.remove(0);
+        System.out.println(result);
         System.out.println(myArrayList);
 
     }
