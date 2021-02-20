@@ -28,12 +28,35 @@ public class Day02 {
         return left;
     }
 
+        public boolean canConstruct(String ransomNote, String magazine) {
+            char[] chars1 = ransomNote.toCharArray();
+            char[] chars2 = magazine.toCharArray();
+            if (chars1.length > chars2.length) {
+                return false;
+            }
+            int[] rans = new int[26];
+            int[] maga = new int[26];
+            for (char c : chars1) {
+                rans[c - 'a']++;
+            }
+            for (char c : chars2) {
+                maga[c - 'a']++;
+            }
+            for (int i = 0; i < rans.length ; i++) {
+                if (rans[i] > maga[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
     public static void main(String[] args) {
 //        int[] nums = {1,2,3,1,0,1,1,1,6,8};
 //        int result = removeElement(nums,1);
 //        System.out.println(result);
         int[] nums = {1,2,4,5,7,8,9};
-        int index = searchInsert(nums,11);
+        int index = searchInsert(nums,6);
         System.out.println(index);
     }
 }
