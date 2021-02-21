@@ -34,16 +34,16 @@ public class Day02 {
             if (chars1.length > chars2.length) {
                 return false;
             }
-            int[] rans = new int[26];
-            int[] maga = new int[26];
+            int[] r = new int[26];
+            int[] m = new int[26];
             for (char c : chars1) {
-                rans[c - 'a']++;
+                r[c - 'a']++;
             }
             for (char c : chars2) {
-                maga[c - 'a']++;
+                m[c - 'a']++;
             }
-            for (int i = 0; i < rans.length ; i++) {
-                if (rans[i] > maga[i]) {
+            for (int i = 0; i < r.length ; i++) {
+                if (r[i] > m[i]) {
                     return false;
                 }
             }
