@@ -17,8 +17,29 @@ public class Day08 {
         return newDigits;
     }
 
+    public static int thirdMax(int[] nums) {
+        long first = Long.MIN_VALUE;
+        long second = Long.MIN_VALUE;
+        long third = Long.MIN_VALUE;
+        for (long num : nums) {
+            if (num > first) {
+                third = second;
+                second = first;
+                first = num;
+            } else if (num > second && num < first) {
+                third = second;
+                second = num;
+            } else if (num > third && num <second) {
+                third = num;
+            }
+        }
+        return (int)(third == Long.MIN_VALUE ? first : third);
+    }
+
     public static void main(String[] args) {
         int[] digits = {9,2,9,1,9};
         System.out.println(Arrays.toString(plusOne(digits)));
+        int[] nums = {3,1,1};
+        System.out.println(thirdMax(nums));
     }
 }
