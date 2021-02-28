@@ -15,22 +15,26 @@ public class Day09 {
         return null;
     }
 
-    public String addBinary(String a, String b) {
+    public static String addBinary(String a, String b) {
         StringBuilder stringBuilder = new StringBuilder();
         int tmp = 0;
-        for (int i = a.length() - 1, j = b.length();i >= 0 || j >= 0;i--,j--) {
+        for (int i = a.length() - 1, j = b.length() - 1;i >= 0 || j >= 0;i--,j--) {
             int sum = tmp;
             sum += i >= 0 ? a.charAt(i) - '0' : 0;
             sum += j >= 0 ? b.charAt(j) - '0' : 0;
             stringBuilder.append(sum % 2);
             tmp = sum / 2;
         }
-        tmp == 1 ? tmp : "";
+        stringBuilder.append(tmp == 1 ? tmp : "");
+        return stringBuilder.reverse().toString();
     }
 
     public static void main(String[] args) {
-        int[] nums = {2,7,11,15};
-        System.out.println(Arrays.toString(twoSum(nums, 13)));
+//        int[] nums = {2,7,11,15};
+//        System.out.println(Arrays.toString(twoSum(nums, 13)));
+        String a = "1010";
+        String b = "1011";
+        System.out.println(addBinary(a,b));
     }
 
 }
