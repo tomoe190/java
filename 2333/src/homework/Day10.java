@@ -23,4 +23,50 @@ public class Day10 {
         }
         return left;
     }
+
+
+    public int myAtoi (String s) {
+        int len = s.length();
+        char[] charArray = s.toCharArray();
+
+        int index = 0;
+        while (charArray[index] == ' ') {
+            index ++;
+        }
+
+        if (index == len) {
+            return 0;
+        }
+
+        int sign = 1;
+        char firstChar = charArray[index];
+        if (firstChar == '+') {
+            index ++;
+        } else if (firstChar == '-') {
+            index ++;
+            sign = -1;
+        }
+
+        int res = 0;
+        while (index < len) {
+            char curChar = charArray[index];
+
+            if (curChar < '0' || curChar > '9') {
+                break;
+            }
+
+            if (res > Integer.MAX_VALUE / 10 ||
+                    (res == Integer.MAX_VALUE / 10 && (curChar - '0') > Integer.MAX_VALUE % 10)) {
+                return Integer.MAX_VALUE;
+            }
+
+            if (res < Integer.MIN_VALUE / 10 ||
+                    (res == Integer.MIN_VALUE / 10 && (curChar - '0') > -(Integer.MIN_VALUE % 10))) {
+                return Integer.MIN_VALUE;
+            }
+            res = res * 10 + sign * (curChar - '0');
+            index ++;
+        }
+        return res;
+    }
 }
