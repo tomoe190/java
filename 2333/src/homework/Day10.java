@@ -54,7 +54,6 @@ public class Day10 {
             if (curChar < '0' || curChar > '9') {
                 break;
             }
-
             if (res > Integer.MAX_VALUE / 10 ||
                     (res == Integer.MAX_VALUE / 10 && (curChar - '0') > Integer.MAX_VALUE % 10)) {
                 return Integer.MAX_VALUE;
