@@ -1,6 +1,10 @@
 package ArrayList;
 
-import java.util.Arrays;
+class MyArrayListIndexOutOfRangeException extends RuntimeException{
+    public MyArrayListIndexOutOfRangeException(String message) {
+        super(message);
+    }
+}
 
 public class MyArrayList {
     private String[] data = null;
@@ -74,20 +78,83 @@ public class MyArrayList {
         return result;
     }
 
-    // 4.按照元素的值删除
+    // 4 按照元素的值删除
     public boolean remove (String elem) {
+        int index = 0;
+        for (; index < size; index++) {
+            if (data[index].equals(elem)) {
+                break;
+            }
+        }
+        if (index >= size) {
+            return false;
+        }
+        for (int i = index; i < size; i++) {
+            data[i] = data[i + 1];
+        }
+        size --;
+        return true;
+    }
+
+    // 5 根据下标获取元素
+    public String get (int index) {
+        if (index < 0 || index > size) {
+//            return null;
+            // 也可以抛出一个异常
+            throw new MyArrayListIndexOutOfRangeException("下标越界了！ index = " + index);
+        }
+        return data[index];
+    }
+
+    // 6 根据下标修改元素
+    public void set (int index,String elem) {
+        if (index < 0 || index > size) {
+            return;
+        }
+        data[index] = elem;
+    }
+
+    // 7 判断元素是否存在
+    public boolean contains (String elem) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(elem)) {
-                for (int j = i;j < size - 1;j++) {
-                    data[j] = data[j + 1];
-                    size --;
-                    return true;
-                }
+                return true;
             }
         }
         return false;
     }
 
+    // 8 查找元素位置
+    public int location (String elem) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(elem)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // 9 查找元素位置，从后往前找
+    public int locationFromTail (String elem) {
+        for (int i = size - 1; i > 0; i--) {
+            if (data[i].equals(elem)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void clear(){
+        size = 0;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public boolean isEmpty(){
+        return size == 0;
+    }
 
     public static void main(String[] args) {
         MyArrayList myArrayList = new MyArrayList();
@@ -95,14 +162,19 @@ public class MyArrayList {
         myArrayList.add("c++");
         myArrayList.add("python");
         myArrayList.add("java");
-        System.out.println(myArrayList);
+//        System.out.println(myArrayList);
 
 //        myArrayList.add(2,"Go");
 //        System.out.println(myArrayList);
 
-        String result = myArrayList.remove(0);
-        System.out.println(result);
-        System.out.println(myArrayList);
+//        boolean result = myArrayList.remove("c");
+//        System.out.println(result);
+//        System.out.println(myArrayList);
 
+//        System.out.println(myArrayList.get(1));
+//        myArrayList.set(0,"VB");
+//        System.out.println(myArrayList);
+//        // 验证下标越界
+//        System.out.println(myArrayList.get(100));
     }
 }
