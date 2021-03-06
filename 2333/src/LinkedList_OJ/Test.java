@@ -130,19 +130,113 @@ public class Test {
         return pre;
     }
 
-    public static void main(String[] args) {
+    // 删除链表中的重复元素
+    public ListNode deleteDuplication(ListNode pHead) {
+        if (pHead == null || pHead.next == null) {
+            return pHead;
+        }
+        ListNode cur = pHead;
+        ListNode newHead = new ListNode(0);
+        ListNode newTail = newHead;
+        while (cur != null) {
+            if (cur.next != null && cur.val == cur.next.val) {
+                while (cur != null && cur.next != null && cur.val == cur.next.val) {
+                    cur = cur.next;
+                }
+                cur = cur.next;
+            } else {
+                newTail.next = new ListNode(cur.val);
+                newTail = newTail.next;
+                cur = cur.next;
+            }
+        }
+        return newHead.next;
+    }
+
+    // 链表的回文结构
+    // 1.时间复杂度是O(n)
+//    public static boolean chkPalindrome(ListNode A) {
+//        if (A == null || A.next == null) {
+//            return true;
+//        }
+//        ListNode newHead = new ListNode(0);
+//        ListNode newTail = newHead;
+//        for(ListNode node = A;node != null;node = node.next) {
+//            newTail.next = new ListNode(node.val);
+//            newTail = newTail.next;
+//        }
+//        ListNode prev = null;
+//        ListNode cur = newHead.next;
+//        while (cur != null) {
+//            ListNode next = cur.next;
+//            cur.next = prev;
+//            prev = cur;
+//            cur = next;
+//        }
+//        ListNode curReverseA = prev;
+//        ListNode curA = A;
+//        while (curReverseA != null && curA != null) {
+//            if (curA.val == curReverseA.val) {
+//                curA = curA.next;
+//                curReverseA = curReverseA.next;
+//            } else {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+    // 时间复杂度是O(1)
+    public static boolean chkPalindrome(ListNode A) {
+
+        if (A == null || A.next == null) {
+            return true;
+        }
+
+        int len = getLength(A);
+        int steps = len / 2;
+        ListNode B = A;
+        for (int i = 0; i < steps; i++) {
+            B = B.next;
+        }
+
+        ListNode prev = null;
+        ListNode cur = B;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        B = prev;
+
+        ListNode cur1 = A;
+        ListNode cur2 = B;
+        while (cur1 != null && cur2 != null) {
+            if (cur1.val != cur2.val) {
+                return false;
+            }
+            cur1 = cur1.next;
+            cur2 = cur2.next;
+        }
+        return true;
+    }
+
+
+        public static void main(String[] args) {
         ListNode head = createListNode();
 //        System.out.println(middleNode(head));
 //        System.out.println(FindKthToTail(head,3));
-        System.out.println(partition(head,3));
+//        System.out.println(partition(head,3));
+            System.out.println(chkPalindrome(head));
     }
 
     public static ListNode createListNode () {
-        ListNode a = new ListNode(0);
-        ListNode b = new ListNode(5);
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(3);
         ListNode c = new ListNode(2);
         ListNode d = new ListNode(3);
-        ListNode e = new ListNode(1);
+        ListNode e = new ListNode(5);
         a.next = b;
         b.next = c;
         c.next = d;
