@@ -186,7 +186,7 @@ public class Test {
 //        return true;
 //    }
 
-    // 时间复杂度是O(1)
+    // 2.时间复杂度是O(1)
     public static boolean chkPalindrome(ListNode A) {
 
         if (A == null || A.next == null) {
@@ -222,8 +222,79 @@ public class Test {
         return true;
     }
 
+    // 找出两个链表相交的起始结点并返回
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        int len1 =getLength(headA);
+        int len2 = getLength(headB);
+        int steps = 0;
 
-        public static void main(String[] args) {
+        if (len1 > len2) {
+            steps = len1 - len2;
+            for (int i = 0; i < steps; i++) {
+                headA = headA.next;
+            }
+        } else {
+            steps = len2 - len1;
+            for (int i = 0; i < steps; i++) {
+                headB = headB.next;
+            }
+        }
+
+        ListNode cur1 = headA;
+        ListNode cur2 = headB;
+        while (cur1 != null && cur2 != null) {
+            if (cur1.next != cur2.next) {
+                cur1 = cur1.next;
+                cur2 = cur2.next;
+            } else {
+                return cur1;
+            }
+        }
+        return null;
+
+    }
+
+    // 环形链表，判断链表是否带环
+    public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && slow != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ListNode detectCycle(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null && slow != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+        }
+        if (fast == null || fast.next == null) {
+            return null;
+        }
+        ListNode cur1 = head;
+        ListNode cur2 = fast;
+        while (cur1 != cur2) {
+            cur1 = cur1.next;
+            cur2 = cur2.next;
+        }
+        return cur1;
+    }
+
+
+    public static void main(String[] args) {
         ListNode head = createListNode();
 //        System.out.println(middleNode(head));
 //        System.out.println(FindKthToTail(head,3));
