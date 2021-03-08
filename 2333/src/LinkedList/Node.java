@@ -1,4 +1,4 @@
-package LinkedList_insertAndDellete;
+package LinkedList;
 
 public class Node {
     public int val;

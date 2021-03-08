@@ -1,4 +1,4 @@
-package LinkedList_insertAndDellete;
+package LinkedList;
 
 public class Main {
     public static Node createLinkedList() {
