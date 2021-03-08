@@ -61,6 +61,7 @@ public class Day210307 {
     }
 
     // 判定链表是否回文
+    // 创建新链表
     public boolean chKPalindrome1(ListNode A) {
         if (A == null || A.next == null) {
             return true;
@@ -91,6 +92,8 @@ public class Day210307 {
         return true;
     }
 
+    // 判断链表是否是回文结构
+    // 不创建新链表
     public boolean chKPalindrome2 (ListNode A) {
         if (A == null || A.next == null) {
             return false;
@@ -121,6 +124,7 @@ public class Day210307 {
         return true;
     }
 
+    // 删除重复的节点
     public ListNode deleteDuplication (ListNode pHead) {
         if (pHead == null || pHead.next == null) {
             return pHead;
