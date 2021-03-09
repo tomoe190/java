@@ -66,7 +66,6 @@ public class MyQueue_LinkedList {
         System.out.println("ret = " + ret);
         ret = myQueue.poll();
         System.out.println("ret = " + ret);
-
         
     }
 }
