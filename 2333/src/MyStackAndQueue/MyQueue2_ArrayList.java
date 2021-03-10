@@ -6,6 +6,7 @@ public class MyQueue2_ArrayList {
     private int tail = 0;
     int size = 0;
 
+    
     // 1、入队列
     public boolean push(int val) {
         if (size == data.length) {
