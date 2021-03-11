@@ -4,11 +4,11 @@ public class MyQueue2_ArrayList {
     private int[] data = new int[100];
     private int head = 0;
     private int tail = 0;
-    int size = 0;
+    private int size = 0;
 
     
     // 1、入队列
-    public boolean push(int val) {
+    public boolean offer(int val) {
         if (size == data.length) {
             return false;
         }
