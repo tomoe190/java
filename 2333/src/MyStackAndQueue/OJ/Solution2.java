@@ -49,4 +49,5 @@ public class Solution2 {
     public boolean empty() {
         return A.isEmpty() && B.isEmpty();
     }
+    
 }
