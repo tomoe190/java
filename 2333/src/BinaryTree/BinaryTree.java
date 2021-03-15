@@ -165,7 +165,6 @@ public class BinaryTree {
 //        System.out.println(getHeight(root));
         Node ret = find(root,"G");
         System.out.println(ret);
-        
     }
 
 }

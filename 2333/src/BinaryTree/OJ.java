@@ -42,5 +42,4 @@ public class OJ {
         result.addAll(preOrderTraversal(root.right));
         return result;
     }
-
 }
