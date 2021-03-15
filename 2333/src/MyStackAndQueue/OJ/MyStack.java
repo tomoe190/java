@@ -4,11 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Solution2 {
+// 用队列实现栈
+public class MyStack {
     Queue<Integer> A = new LinkedList<>();
     Queue<Integer> B = new LinkedList<>();
 
-    public void stack() {
+    public void myStack() {
 
     }
 
@@ -53,7 +54,7 @@ public class Solution2 {
 
 }
 
-class Solution3 {
+class MyQueue {
     Stack<Integer> A = new Stack<>();
     Stack<Integer> B = new Stack<>();
 
