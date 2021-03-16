@@ -94,5 +94,4 @@ public class OJ {
         }
         return isSubTree(s.left,t) || isSubTree(s.right,t);
     }
-
 }
