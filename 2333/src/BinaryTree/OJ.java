@@ -32,8 +32,9 @@ public class OJ {
         return a;
     }
 
-    public List<Integer> preOrderTraversal(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
+    // 前序遍历
+    public List<String> preOrderTraversal(TreeNode root) {
+        List<String> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
@@ -42,4 +43,35 @@ public class OJ {
         result.addAll(preOrderTraversal(root.right));
         return result;
     }
+
+    // 中序遍历
+    public List<String> inorderTraversal(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        result.addAll(inorderTraversal(root.left));
+        result.add(root.val);
+        result.addAll(inorderTraversal(root.right));
+        return result;
+    }
+
+
+
+    // 后序遍历
+    public List<String> postorderTraversal(TreeNode root) {
+        List<String> result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        result.addAll(postorderTraversal(root.left));
+        result.addAll(postorderTraversal(root.right));
+        result.add(root.val);
+        return result;
+    }
+
+
+
+
+
 }
