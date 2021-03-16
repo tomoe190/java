@@ -1,27 +1,29 @@
 package BinaryTree;
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.ArrayList;
 import java.util.List;
 
 class TreeNode {
-    String val;
+    int val;
     TreeNode left;
     TreeNode right;
 
-    public TreeNode(String val) {
+    public TreeNode(int val) {
         this.val = val;
     }
 }
 
 public class OJ {
     public TreeNode build() {
-        TreeNode a = new TreeNode("A");
-        TreeNode b = new TreeNode("B");
-        TreeNode c = new TreeNode("C");
-        TreeNode d = new TreeNode("D");
-        TreeNode e = new TreeNode("E");
-        TreeNode f = new TreeNode("F");
-        TreeNode g = new TreeNode("G");
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(3);
+        TreeNode d = new TreeNode(4);
+        TreeNode e = new TreeNode(5);
+        TreeNode f = new TreeNode(6);
+        TreeNode g = new TreeNode(7);
 
         a.left = b;
         a.right = c;
@@ -33,8 +35,8 @@ public class OJ {
     }
 
     // 前序遍历
-    public List<String> preOrderTraversal(TreeNode root) {
-        List<String> result = new ArrayList<>();
+    public List<Integer> preOrderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
@@ -45,8 +47,8 @@ public class OJ {
     }
 
     // 中序遍历
-    public List<String> inorderTraversal(TreeNode root) {
-        List<String> result = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
@@ -59,8 +61,8 @@ public class OJ {
 
 
     // 后序遍历
-    public List<String> postorderTraversal(TreeNode root) {
-        List<String> result = new ArrayList<>();
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
@@ -70,8 +72,27 @@ public class OJ {
         return result;
     }
 
+    public boolean isSameTree (TreeNode p,TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        if (p.val != q.val) {
+            return false;
+        }
+        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+    }
 
-
-
+    public boolean isSubTree (TreeNode s,TreeNode t) {
+        if (s == null) {
+            return false;
+        }
+        if (isSameTree(s,t)) {
+            return true;
+        }
+        return isSubTree(s.left,t) || isSubTree(s.right,t);
+    }
 
 }
