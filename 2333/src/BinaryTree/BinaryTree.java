@@ -1,5 +1,8 @@
 package BinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     String val;
     Node left;
@@ -45,6 +48,7 @@ public class BinaryTree {
         return a;
     }
 
+    // 先序遍历
     public static void preOrder(Node root) {
         if (root == null) {
             return;
@@ -54,6 +58,7 @@ public class BinaryTree {
         preOrder(root.right);
     }
 
+    // 中序遍历
     public static void inOrder(Node root) {
         if (root == null) {
             return ;
@@ -63,6 +68,7 @@ public class BinaryTree {
         inOrder(root.right);
     }
 
+    // 后序遍历
     public static void postOrder(Node root) {
         if (root == null) {
             return ;
@@ -72,6 +78,7 @@ public class BinaryTree {
         System.out.print(root.val);
     }
 
+    // 数节点的个数
     public static int count = 0;
     public static void length(Node root) {
         if (root == null) {
@@ -82,6 +89,7 @@ public class BinaryTree {
         length(root.right);
     }
 
+    //
     public static int length2(Node root) {
         if (root == null) {
             return 0;
@@ -89,6 +97,7 @@ public class BinaryTree {
         return 1 + length2(root.left) + length2(root.right);
     }
 
+    // 叶子节点个数
     public static int LeafSize = 0;
     public static void getLeafSize(Node root) {
         if (root == null) {
@@ -111,6 +120,7 @@ public class BinaryTree {
         return getLeafSize2(root.left) + getLeafSize2(root.right);
     }
 
+    // 第 k 层的节点个数
     public static int getKLevelSize(Node root,int k) {
         if (root == null || k < 1) {
             return 0;
@@ -121,6 +131,7 @@ public class BinaryTree {
         return getKLevelSize(root.left,k - 1) + getKLevelSize(root.right,k - 1);
     }
 
+    // 树的高度
     public static int getHeight(Node root) {
         if (root == null) {
             return 0;
@@ -130,6 +141,7 @@ public class BinaryTree {
        return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
     }
 
+    // 查找某元素
     public static Node find(Node root,String toFind) {
         if (root == null) {
             return null;
@@ -143,6 +155,7 @@ public class BinaryTree {
         }
         return find(root.right,toFind);
     }
+
 
     public static void main(String[] args) {
         Node root = build();
@@ -163,8 +176,10 @@ public class BinaryTree {
 //        System.out.println(getKLevelSize(root,5));
 
 //        System.out.println(getHeight(root));
-        Node ret = find(root,"G");
-        System.out.println(ret);
+
+//        Node ret = find(root,"G");
+//        System.out.println(ret);
+
     }
 
 }
