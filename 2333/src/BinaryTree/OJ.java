@@ -163,13 +163,34 @@ public class OJ {
     }
 
     // 层序遍历
+//    public static void levelOrder(TreeNode root) {
+//        if (root == null) {
+//            return;
+//        }
+//        Queue<TreeNode> result = new LinkedList<>();
+//        result.offer(root);
+//        while(true) {
+//            TreeNode cur = result.poll();
+//            if (cur == null) {
+//                break;
+//            }
+//            System.out.print(cur.val);
+//            if (cur.left != null) {
+//                result.offer(cur.left);
+//            }
+//            if (cur.right != null) {
+//                result.offer(cur.right);
+//            }
+//        }
+//    }
+
     public static void levelOrder(TreeNode root) {
         if (root == null) {
             return;
         }
         Queue<TreeNode> result = new LinkedList<>();
         result.offer(root);
-        while(true) {
+        while (true) {
             TreeNode cur = result.poll();
             if (cur == null) {
                 break;
@@ -183,6 +204,10 @@ public class OJ {
             }
         }
     }
+
+//    public static boolean isCompleteTree(TreeNode root) {
+//
+//    }
 
     public static void main(String[] args) {
         TreeNode root = build();
