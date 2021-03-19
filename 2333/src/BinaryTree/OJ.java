@@ -243,12 +243,68 @@ public class OJ {
         }
     }
 
+    // 完全二叉树
     public static boolean isCompleteTree(TreeNode root) {
+        // 通过层序遍历的方式来实现
+        if (root == null) {
+            return true;
+        }
+        // 分为两个阶段判定
+        // 这个变量为 false ，表示当前是第一阶段
+        // 变量名为 true 表示进入第二阶段
+        boolean isLevel2 = false;
 
+        // 层序遍历
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(true) {
+            TreeNode cur = queue.poll();
+            if (cur == null) {
+                break;
+            }
+
+            // 针对当前节点进行访问
+            // 此处的访问是一系列的逻辑判断
+            if (!isLevel2) {
+                // 第一阶段的逻辑
+                if (cur.left != null && cur.right != null) {
+                    // 符合要求的节点，继续往下遍历
+                    // 此时直接把左右子树入队列
+                    queue.offer(cur.left);
+                    queue.offer(cur.right);
+                } else if (cur.left == null && cur.right != null) {
+                    // 第一阶段发现只有右子树的节点
+                    // 说明这个树一定不是完全二叉树
+                    return false;
+                } else if (cur.left != null && cur.right == null) {
+                    // 遇到了这个节点不符合第一阶段的条件
+                    // 进入到第二阶段进行判定
+                    isLevel2 = true;
+                    queue.offer(cur.left);
+                } else {
+                    // 这个节点没有子树
+                    // 也是进入到第二阶段进行判定
+                    // 因为上一个 elseif 中需要入队列，所以这两步不能合并
+                    isLevel2 = true;
+                }
+            } else {
+                // 第二阶段的逻辑
+                if (cur.left != null || cur.right != null) {
+                    // 发现第二阶段的某个节点的子树不为空
+                    // 此时就不是完全二叉树
+                    return false;
+                }
+            }
+
+        }
+        // 遍历了整个树，都没有找到反例 return false，就 return true
+        return true;
     }
 
     public static void main(String[] args) {
         TreeNode root = build();
-        levelOrder(root);
+//        levelOrder(root);
+
+        System.out.println(isCompleteTree(root));
     }
 }

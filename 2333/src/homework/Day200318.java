@@ -182,6 +182,44 @@ public class Day200318 {
         return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
     }
 
+    public static boolean isCompleteTree(Node root) {
+        if (root == null) {
+            return true;
+        }
+        boolean isLevel2 = false;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while (true) {
+            Node cur = queue.poll();
+            if (cur == null) {
+                break;
+            }
+
+            if (!isLevel2) {
+                // 第一阶段
+                if (cur.left != null && cur.right != null) {
+                    queue.offer(cur.left);
+                    queue.offer(cur.right);
+                } else if (cur.left == null && cur.right != null) {
+                    return false;
+                } else if (cur.left != null && cur.right == null) {
+                    isLevel2 = true;
+                    queue.offer(cur.left);
+                } else {
+                    isLevel2 = true;
+                }
+            } else {
+                // 第二阶段
+                if (cur.left != null || cur.right == null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 
     public static void main(String[] args) {
         Node root = build();
@@ -201,7 +239,8 @@ public class Day200318 {
 
 //        System.out.println(isBalanced(root));
 
-        System.out.println(getHeight(root));
+//        System.out.println(getHeight(root));
 
+        System.out.println(isCompleteTree(root));
     }
 }
