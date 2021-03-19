@@ -71,7 +71,53 @@ public class OJ {
     }
 
     // 4.判断两个树是否相同
-    public boolean isSameTree (TreeNode p,TreeNode q) {
+//    public boolean isSameTree (TreeNode p,TreeNode q) {
+//        if (p == null && q == null) {
+//            return true;
+//        }
+//        if (p == null || q == null) {
+//            return false;
+//        }
+//        if (p.val != q.val) {
+//            return false;
+//        }
+//        return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+//    }
+
+//    public static boolean isSameTree(TreeNode p,TreeNode q) {
+//        if (p == null && q == null) {
+//            return true;
+//        }
+//        if (p == null || q == null) {
+//            return false;
+//        }
+//        if (p.val != (q.val)) {
+//            return false;
+//        }
+//        return isSameTree(p.left,q.left) &&﻿ isSameTree(p.right,q.right);﻿﻿  ﻿
+//    }
+
+    // 5.判断树 t 是否是树 s 的子树
+//    public boolean isSubTree (TreeNode s,TreeNode t) {
+//        if (s == null) {
+//            return false;
+//        }
+//        if (isSameTree(s,t)) {
+//            return true;
+//        }
+//        return isSubTree(s.left,t) || isSubTree(s.right,t);
+//    }
+    public static boolean isSubTree(TreeNode s,TreeNode t) {
+        if (s == null) {
+            return false;
+        }
+        if (isSameTree(s,t)) {
+            return true;
+        }
+        return isSubTree(s.left,t) || isSubTree(s.right,t);
+    }
+
+    public static boolean isSameTree(TreeNode p,TreeNode q) {
         if (p == null && q == null) {
             return true;
         }
@@ -82,17 +128,6 @@ public class OJ {
             return false;
         }
         return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
-    }
-
-    // 5.判断树 t 是否是树 s 的子树
-    public boolean isSubTree (TreeNode s,TreeNode t) {
-        if (s == null) {
-            return false;
-        }
-        if (isSameTree(s,t)) {
-            return true;
-        }
-        return isSubTree(s.left,t) || isSubTree(s.right,t);
     }
 
     // 6.求树的高度
@@ -162,6 +197,9 @@ public class OJ {
         return isMirror(p.left,q.right) && isMirror(p.right,q.left);
     }
 
+
+
+
     // 层序遍历
 //    public static void levelOrder(TreeNode root) {
 //        if (root == null) {
@@ -205,9 +243,9 @@ public class OJ {
         }
     }
 
-//    public static boolean isCompleteTree(TreeNode root) {
-//
-//    }
+    public static boolean isCompleteTree(TreeNode root) {
+
+    }
 
     public static void main(String[] args) {
         TreeNode root = build();
