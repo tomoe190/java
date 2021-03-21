@@ -74,9 +74,8 @@ public class CreateTree {
             helper(root.left,level + 1);
         }
         if (root.right != null) {
-            helper(root.right,level + 1);
+            helper(root.right, level + 1);
         }
-
     }
 
     public TreeNode lca = null;
