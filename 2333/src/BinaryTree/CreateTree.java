@@ -67,7 +67,7 @@ public class CreateTree {
 
     public void helper (TreeNode root,int level) {
         if (level == result.size()) {
-            result.add(new ArrayList<Integer>());
+            result.add(new ArrayList<>());
         }
         result.get(level).add(root.val);
         if (root.left != null) {
