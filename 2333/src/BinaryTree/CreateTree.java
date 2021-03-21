@@ -75,7 +75,6 @@ public class CreateTree {
         }
         if (root.right != null) {
             helper(root.right, level + 1);
-            
         }
     }
 
