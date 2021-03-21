@@ -104,15 +104,39 @@ public class Day200318 {
     }
 
     // 判断是否是完全二叉树
-//    public static boolean isCompleteTree(Node root) {
-//        if (root == null) {
-//            return true;
-//        }
-//        if (root.left == null && root.right == null) {
-//            return true;
-//        }
-//
-//    }
+    public static boolean isCompleteTree(Node root) {
+        if (root == null) {
+            return true;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        boolean isLevel2 = false;
+
+        while (true) {
+            Node cur = queue.poll();
+            if (cur == null) {
+                break;
+            }
+            if (!isLevel2) {
+                if (cur.left != null && cur.right != null) {
+                    queue.offer(cur.left);
+                    queue.offer(cur.right);
+                } else if (cur.left == null && cur.right != null) {
+                    return false;
+                } else if (cur.left != null && cur.right == null) {
+                    isLevel2 = true;
+                    queue.offer(cur.left);
+                } else {
+                    isLevel2 = true;
+                }
+            } else {
+                if (cur.left != null || cur.right != null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     // 层序遍历
     public static void levelOrder(Node root) {
@@ -182,7 +206,7 @@ public class Day200318 {
         return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
     }
 
-    public static boolean isCompleteTree(Node root) {
+    public static boolean isCompleteTree1(Node root) {
         if (root == null) {
             return true;
         }
