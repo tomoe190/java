@@ -20,9 +20,9 @@ public class Heap {
                 // 调整完毕
                 break;
             }
-        parent = child;
-        child = 2 * parent + 1;
-    }
+            parent = child;
+            child = 2 * parent + 1;
+        }
 }
 
 // 建堆操作
