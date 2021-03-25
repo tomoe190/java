@@ -2,6 +2,7 @@ package homework;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class Day200318 {
     public static class Node{
@@ -104,14 +105,48 @@ public class Day200318 {
     }
 
     // 判断是否是完全二叉树
+//    public static boolean isCompleteTree(Node root) {
+//        if (root == null) {
+//            return true;
+//        }
+//        Queue<Node> queue = new LinkedList<>();
+//        queue.offer(root);
+//        boolean isLevel2 = false;
+//
+//        while (true) {
+//            Node cur = queue.poll();
+//            if (cur == null) {
+//                break;
+//            }
+//            if (!isLevel2) {
+//                if (cur.left != null && cur.right != null) {
+//                    queue.offer(cur.left);
+//                    queue.offer(cur.right);
+//                } else if (cur.left == null && cur.right != null) {
+//                    return false;
+//                } else if (cur.left != null && cur.right == null) {
+//                    isLevel2 = true;
+//                    queue.offer(cur.left);
+//                } else {
+//                    isLevel2 = true;
+//                }
+//            } else {
+//                if (cur.left != null || cur.right != null) {
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
+
     public static boolean isCompleteTree(Node root) {
         if (root == null) {
             return true;
         }
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
-        boolean isLevel2 = false;
 
+        boolean isLevel2 = false;
         while (true) {
             Node cur = queue.poll();
             if (cur == null) {
@@ -206,43 +241,43 @@ public class Day200318 {
         return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
     }
 
-    public static boolean isCompleteTree1(Node root) {
-        if (root == null) {
-            return true;
-        }
-        boolean isLevel2 = false;
-
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-
-        while (true) {
-            Node cur = queue.poll();
-            if (cur == null) {
-                break;
-            }
-
-            if (!isLevel2) {
-                // 第一阶段
-                if (cur.left != null && cur.right != null) {
-                    queue.offer(cur.left);
-                    queue.offer(cur.right);
-                } else if (cur.left == null && cur.right != null) {
-                    return false;
-                } else if (cur.left != null && cur.right == null) {
-                    isLevel2 = true;
-                    queue.offer(cur.left);
-                } else {
-                    isLevel2 = true;
-                }
-            } else {
-                // 第二阶段
-                if (cur.left != null || cur.right == null) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+//    public static boolean isCompleteTree1(Node root) {
+//        if (root == null) {
+//            return true;
+//        }
+//        boolean isLevel2 = false;
+//
+//        Queue<Node> queue = new LinkedList<>();
+//        queue.offer(root);
+//
+//        while (true) {
+//            Node cur = queue.poll();
+//            if (cur == null) {
+//                break;
+//            }
+//
+//            if (!isLevel2) {
+//                // 第一阶段
+//                if (cur.left != null && cur.right != null) {
+//                    queue.offer(cur.left);
+//                    queue.offer(cur.right);
+//                } else if (cur.left == null && cur.right != null) {
+//                    return false;
+//                } else if (cur.left != null && cur.right == null) {
+//                    isLevel2 = true;
+//                    queue.offer(cur.left);
+//                } else {
+//                    isLevel2 = true;
+//                }
+//            } else {
+//                // 第二阶段
+//                if (cur.left != null || cur.right == null) {
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
 
 
     public static void main(String[] args) {
@@ -266,5 +301,6 @@ public class Day200318 {
 //        System.out.println(getHeight(root));
 
         System.out.println(isCompleteTree(root));
+
     }
 }

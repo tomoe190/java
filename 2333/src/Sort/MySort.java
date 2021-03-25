@@ -44,7 +44,6 @@ public class MySort {
                 }
             }
             arr[cur + gap] = v;
-            
         }
     }
 

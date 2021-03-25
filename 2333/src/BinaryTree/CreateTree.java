@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class CreateTree {
     public static class TreeNode{
-//        char val;
-        int val;
+        char val;
+//        int val;
         TreeNode left;
         TreeNode right;
 
@@ -18,65 +18,65 @@ public class CreateTree {
 
     // 为了在递归过程中，也能明确的知道当前正在处理的节点的位置
     // 使用一个成员变量 index 记录当前节点对应的下标
-//    public static int index = 0;
-//    public static TreeNode build(String line) {
-//        // 由于我们的用例可能有多组
-//        // 需要保证每组用例开始递归之前
-//        // 都把 index 设为 0，保证多个用例之间互不干扰
-//        index = 0;
-//        return _build(line);
-//    }
-//
-//    // 实际上我们是通过这个 _build 方法来进行递归的
-//    // 不能直接拿 build 来递归
-//    // 因为 build 里有一个 index = 0
-//    // 如果递归中执行这个语句，index 的值就会发生混乱
-//    public static TreeNode _build(String line) {
-//        char ch = line.charAt(index);
-//        if (ch == '#') {
-//            return null;
-//        }
-//        TreeNode root = new TreeNode(ch);
-//        index ++;
-//        root.left = _build(line);
-//        index ++;
-//        root.right = _build(line);
-//        return root;
-//    }
-//
-//    public static void inOrder(TreeNode root) {
-//        if (root == null) {
-//            return;
-//        }
-//        inOrder(root.left);
-//        // 注意题目中要求的输出格式，是一组结果在一行，每个节点之间用一个空格来分开
-//        System.out.print(root.val + " ");
-//        inOrder(root.right);
-//    }
+    public static int index = 0;
+    public static TreeNode build(String line) {
+        // 由于我们的用例可能有多组
+        // 需要保证每组用例开始递归之前
+        // 都把 index 设为 0，保证多个用例之间互不干扰
+        index = 0;
+        return _build(line);
+    }
+
+    // 实际上我们是通过这个 _build 方法来进行递归的
+    // 不能直接拿 build 来递归
+    // 因为 build 里有一个 index = 0
+    // 如果递归中执行这个语句，index 的值就会发生混乱
+    public static TreeNode _build(String line) {
+        char ch = line.charAt(index);
+        if (ch == '#') {
+            return null;
+        }
+        TreeNode root = new TreeNode(ch);
+        index ++;
+        root.left = _build(line);
+        index ++;
+        root.right = _build(line);
+        return root;
+    }
+
+    public static void inOrder(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        // 注意题目中要求的输出格式，是一组结果在一行，每个节点之间用一个空格来分开
+        System.out.print(root.val + " ");
+        inOrder(root.right);
+    }
 
     // 二叉树的层序遍历
-    public List<List<Integer>> result = null;
-    public List<List<Integer>> level2(TreeNode root) {
-        result = new ArrayList<>();
-        if (root == null) {
-            return result;
-        }
-        helper(root,0);
-        return result;
-    }
+//    public List<List<Integer>> result = null;
+//    public List<List<Integer>> level2(TreeNode root) {
+//        result = new ArrayList<>();
+//        if (root == null) {
+//            return result;
+//        }
+//        helper(root,0);
+//        return result;
+//    }
 
-    public void helper (TreeNode root,int level) {
-        if (level == result.size()) {
-            result.add(new ArrayList<>());
-        }
-        result.get(level).add(root.val);
-        if (root.left != null) {
-            helper(root.left,level + 1);
-        }
-        if (root.right != null) {
-            helper(root.right, level + 1);
-        }
-    }
+//    public void helper (TreeNode root,int level) {
+//        if (level == result.size()) {
+//            result.add(new ArrayList<>());
+//        }
+//        result.get(level).add(root.val);
+//        if (root.left != null) {
+//            helper(root.left,level + 1);
+//        }
+//        if (root.right != null) {
+//            helper(root.right, level + 1);
+//        }
+//    }
 
     public TreeNode lca = null;
     public TreeNode lowestAncient(TreeNode root,TreeNode p,TreeNode q) {
@@ -135,13 +135,13 @@ public class CreateTree {
     }
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//        while (scanner.hasNext()) {
-//            String line = scanner.next();
-//            TreeNode root = build(line);
-//            inOrder(root);
-//            System.out.println();
-//        }
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String line = scanner.next();
+            TreeNode root = build(line);
+            inOrder(root);
+            System.out.println();
+        }
 
     }
 
