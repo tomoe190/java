@@ -169,6 +169,30 @@ public class Day20210322 {
         return mid + left + right > 0;
     }
 
+    public static TreeNode convert(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        if (root.left == null && root.right == null) {
+            return root;
+        }
+        TreeNode leftHead = convert(root.left);
+        TreeNode leftTail = leftHead;
+        while (leftTail != null && leftTail.right != null) {
+            leftTail = leftTail.right;
+        }
+        if (leftTail != null) {
+            leftTail.right = root;
+            root.left = leftTail;
+        }
+        TreeNode rightHead = convert(root.right);
+        if (rightHead != null) {
+            rightHead.left = root;
+            root.right = rightHead;
+        }
+        return (leftHead != null) ? leftHead : root;
+    }
+
     public static void main(String[] args) {
 //        Scanner scanner = new Scanner(System.in);
 //        while (scanner.hasNext()) {
