@@ -148,6 +148,24 @@ public class MySort {
         // 2、把根节点入栈，整个数组对应的区间
         stack.push(0);
         stack.push(arr.length - 1);
+        // 3、循环取栈顶元素
+        while (!stack.isEmpty()) {
+            // 取的元素就是当前的待处理区间
+            int right = stack.pop();
+            int left = stack.pop();
+            if (left >= right) {
+                // 如果是空区间或只有一个元素，不需要排序
+                continue;
+            }
+            // 调用partition 方法整理当前区间
+            int index = partition(arr,left,right);
+            // 右侧区间：[index + 1,right]
+            stack.push(index + 1);
+            stack.push(right);
+            // 左侧区间：[left,index - 1]
+            stack.push(left);
+            stack.push(index - 1);
+        }
     }
 
     public static void main(String[] args) {
