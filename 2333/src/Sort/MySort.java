@@ -195,7 +195,7 @@ public class MySort {
             return ;
         }
         int mid = (left + right) / 2;
-        // 先让 [left, right) 区间变成有序
+        // 先让 [left, mid) 区间变成有序
         _mergeSort(arr,left,mid);
         // 再让 [mid,right) 区间变成有序
         _mergeSort(arr,mid,right);
@@ -247,6 +247,20 @@ public class MySort {
         }
     }
 
+    public static void mergeSortByLoop(int[] arr) {
+        // 控制每个分组的长度，每个待归并数组的长度
+        int gap = 1;
+        for(;gap < arr.length;gap *= 2) {
+            for (int i = 0; i < arr.length; i += 2*gap) {
+                // 控制两个相邻数组归并
+                int left = i;
+                int mid = i + gap;
+                int right = i + 2 * gap;
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         int[] arr = {8,7,2,5,6,9,1};
 //        insertSort(arr);
@@ -255,7 +269,7 @@ public class MySort {
 //        heapSort(arr);
 //        bubbleSort(arr);
 //        quickSort(arr);
-
+        mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
