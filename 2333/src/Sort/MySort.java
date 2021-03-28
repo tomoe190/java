@@ -143,45 +143,45 @@ public class MySort {
     }
 
     public static void quickSortByLoop(int[] arr) {
-//        // 1、创建一个栈用来保存当前的每一个待处理区间
-//        Stack<Integer> stack = new Stack<>();
-//        // 2、把根节点入栈，整个数组对应的区间
-//        stack.push(0);
-//        stack.push(arr.length - 1);
-//        // 3、循环取栈顶元素
-//        while (!stack.isEmpty()) {
-//            // 取的元素就是当前的待处理区间
-//            int right = stack.pop();
-//            int left = stack.pop();
-//            if (left >= right) {
-//                // 如果是空区间或只有一个元素，不需要排序
-//                continue;
-//            }
-//            // 调用partition 方法整理当前区间
-//            int index = partition(arr,left,right);
-//            // 右侧区间：[index + 1,right]
-//            stack.push(index + 1);
-//            stack.push(right);
-//            // 左侧区间：[left,index - 1]
-//            stack.push(left);
-//            stack.push(index - 1);
-//        }
-
+        // 1、创建一个栈用来保存当前的每一个待处理区间
         Stack<Integer> stack = new Stack<>();
+        // 2、把根节点入栈，整个数组对应的区间
         stack.push(0);
         stack.push(arr.length - 1);
+        // 3、循环取栈顶元素
         while (!stack.isEmpty()) {
+            // 取的元素就是当前的待处理区间
             int right = stack.pop();
             int left = stack.pop();
             if (left >= right) {
-                return ;
+                // 如果是空区间或只有一个元素，不需要排序
+                continue;
             }
+            // 调用partition 方法整理当前区间
             int index = partition(arr,left,right);
+            // 右侧区间：[index + 1,right]
             stack.push(index + 1);
             stack.push(right);
+            // 左侧区间：[left,index - 1]
             stack.push(left);
             stack.push(index - 1);
         }
+
+//        Stack<Integer> stack = new Stack<>();
+//        stack.push(0);
+//        stack.push(arr.length - 1);
+//        while (!stack.isEmpty()) {
+//            int right = stack.pop();
+//            int left = stack.pop();
+//            if (left >= right) {
+//                continue ;
+//            }
+//            int index = partition(arr,left,right);
+//            stack.push(index + 1);
+//            stack.push(right);
+//            stack.push(left);
+//            stack.push(index - 1);
+//        }
     }
 
     public static void mergeSort(int[] arr) {
@@ -212,6 +212,9 @@ public class MySort {
         // 创建一个临时空间来保存归并的结果
         // 临时空间得能保存的下待归并的两个数组
         // right - left这么长
+        if (left >= right) {
+            return;
+        }
         int[] tmp = new int[right - left];
         // 这个下标表示当前元素放到临时空间的哪个位置
         int tmpIndex = 0;
@@ -255,10 +258,16 @@ public class MySort {
                 // 控制两个相邻数组归并
                 int left = i;
                 int mid = i + gap;
+                if (mid > arr.length) {
+                    mid = arr.length;
+                }
                 int right = i + 2 * gap;
+                if (right > arr.length) {
+                    right = arr.length;
+                }
+                merge(arr,left,mid,right);
             }
         }
-
     }
 
     public static void main(String[] args) {
@@ -269,7 +278,9 @@ public class MySort {
 //        heapSort(arr);
 //        bubbleSort(arr);
 //        quickSort(arr);
-        mergeSort(arr);
+//        mergeSort(arr);
+//        quickSortByLoop(arr);
+        mergeSortByLoop(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
