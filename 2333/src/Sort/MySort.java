@@ -143,28 +143,107 @@ public class MySort {
     }
 
     public static void quickSortByLoop(int[] arr) {
-        // 1、创建一个栈用来保存当前的每一个待处理区间
+//        // 1、创建一个栈用来保存当前的每一个待处理区间
+//        Stack<Integer> stack = new Stack<>();
+//        // 2、把根节点入栈，整个数组对应的区间
+//        stack.push(0);
+//        stack.push(arr.length - 1);
+//        // 3、循环取栈顶元素
+//        while (!stack.isEmpty()) {
+//            // 取的元素就是当前的待处理区间
+//            int right = stack.pop();
+//            int left = stack.pop();
+//            if (left >= right) {
+//                // 如果是空区间或只有一个元素，不需要排序
+//                continue;
+//            }
+//            // 调用partition 方法整理当前区间
+//            int index = partition(arr,left,right);
+//            // 右侧区间：[index + 1,right]
+//            stack.push(index + 1);
+//            stack.push(right);
+//            // 左侧区间：[left,index - 1]
+//            stack.push(left);
+//            stack.push(index - 1);
+//        }
+
         Stack<Integer> stack = new Stack<>();
-        // 2、把根节点入栈，整个数组对应的区间
         stack.push(0);
         stack.push(arr.length - 1);
-        // 3、循环取栈顶元素
         while (!stack.isEmpty()) {
-            // 取的元素就是当前的待处理区间
             int right = stack.pop();
             int left = stack.pop();
             if (left >= right) {
-                // 如果是空区间或只有一个元素，不需要排序
-                continue;
+                return ;
             }
-            // 调用partition 方法整理当前区间
             int index = partition(arr,left,right);
-            // 右侧区间：[index + 1,right]
             stack.push(index + 1);
             stack.push(right);
-            // 左侧区间：[left,index - 1]
             stack.push(left);
             stack.push(index - 1);
+        }
+    }
+
+    public static void mergeSort(int[] arr) {
+        _mergeSort(arr,0,arr.length);
+    }
+
+    public static void _mergeSort(int[] arr,int left,int right) {
+        if (right - left <= 1) {
+            // 判定当前区间是不是只有一个元素或者没有元素
+            // 此时不需要进行排序
+            return ;
+        }
+        int mid = (left + right) / 2;
+        // 先让 [left, right) 区间变成有序
+        _mergeSort(arr,left,mid);
+        // 再让 [mid,right) 区间变成有序
+        _mergeSort(arr,mid,right);
+        // 合并两个有序区间
+        merge(arr,left,mid,right);
+    }
+
+    // 归并中的关键操作，就是归并两个有序数组
+    // 使用该方法完成数组归并的过程
+    // 此处两个数组就通过参数的 left,mid,right 描述
+    // [left, mid) 左侧数组
+    // [mid,right) 右侧数组
+    public static void merge(int[] arr,int left,int mid,int right) {
+        // 创建一个临时空间来保存归并的结果
+        // 临时空间得能保存的下待归并的两个数组
+        // right - left这么长
+        int[] tmp = new int[right - left];
+        // 这个下标表示当前元素放到临时空间的哪个位置
+        int tmpIndex = 0;
+        int cur1 = left;
+        int cur2 = mid;
+        while (cur1 < mid && cur2 < right) {
+            if(arr[cur1] <= arr[cur2]) {
+                tmp[tmpIndex] = arr[cur1];
+                tmpIndex ++;
+                cur1 ++;
+            } else {
+                tmp[tmpIndex] = arr[cur2];
+                tmpIndex ++;
+                cur2 ++;
+            }
+        }
+        // 循环结束后，需要把剩余元素也都拷贝到最终结果里
+        while (cur1 < mid) {
+            tmp[tmpIndex] = arr[cur1];
+            tmpIndex ++;
+            cur1 ++;
+        }
+        while (cur2 < right) {
+            tmp[tmpIndex] = arr[cur2];
+            tmpIndex ++;
+            cur2 ++;
+        }
+        // h还需要把 tmp 的结果再放回 arr 数组 （原地排序）
+        for (int i = 0; i < tmp.length; i++) {
+//            arr[left] = tmp[i];
+//            left ++;
+            arr[left + i] = tmp[i];
         }
     }
 
@@ -175,7 +254,8 @@ public class MySort {
 //        selectOrder(arr);
 //        heapSort(arr);
 //        bubbleSort(arr);
-        quickSort(arr);
+//        quickSort(arr);
+
         System.out.println(Arrays.toString(arr));
     }
 }
