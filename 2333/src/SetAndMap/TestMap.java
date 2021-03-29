@@ -20,7 +20,7 @@ public class TestMap {
 //        String value = map.get("行者");
         //    如果 get 时 key 不存在，get 返回 null
 //        String value1 = map.get("小李广");
-        //    还可以使用 getOrderDefault 来根据 key 获取 value
+        //    还可以使用 getOrDefault 来根据 key 获取 value
         //    如果 key 不存在，getOrDefault 返回一个默认值
         String value2 = map.getOrDefault("小李广","花荣");
         System.out.println(value2);
@@ -39,6 +39,7 @@ public class TestMap {
         // 6、遍历 Map (Map 设计出来不是为了遍历的)
         //    比较复杂，需要把 Map 转换成 Set 再遍历
         //    Entry 是 Map 的内部类，条目，每个条目就是一个键值对
+
         // map.entrySet() 把 Map 这样的键值对结构进行了转换，转换成一个 Set
         // Set 里面的每个元素都是一个 Entry
         // 每个 Entry 里面包含了 key 和 value
