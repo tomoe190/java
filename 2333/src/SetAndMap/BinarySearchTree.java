@@ -102,8 +102,19 @@ public class BinarySearchTree {
             }
         // 3、要删除的节点左右子树都有
         } else {
-            // 先在右子树中找到最小值，也要记录
-
+            // 在右子树中找到最小值
+            BinarySearchNode goat = cur.right;
+            BinarySearchNode goatParent = cur;
+            while (goat.left != null) {
+                goat = goat.left;
+            }
+            cur.key = goat.key;
+            cur.value = goat.value;
+            if (goat == goatParent.left) {
+                goatParent.left = goat.right;
+            } else if (goat == goatParent.right) {
+                goatParent.right = goat.right;
+            }
         }
     }
 }
