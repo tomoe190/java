@@ -20,8 +20,23 @@
 <!--            color:green;-->
 <!--        }-->
 <!--    </style>-->
+    <script>
+<!--        加载时就开始执行-->
+        // alert(2);
+        var articles = [{
+            title:"我的第一篇博客",
+            content:"学习html"
+        }, {
+            title:"我的第二篇博客",
+            content: "学习 JS"
+        }];
+        console.log(articles[0]);
+        console.log(JSON.stringify(articles))
+    </script>
+<!--    <script type="application/javascript" src="js/1.js"></script>-->
 </head>
-<body>
+<!--body 加载时执行-->
+<body onload="alert('ok')">
     <img src="image/下载%20(1).jpg">
 <!--    1、作用在一个标签-->
     <p style="color:olivedrab">1111111</p>
