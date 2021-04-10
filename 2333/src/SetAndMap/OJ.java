@@ -102,14 +102,61 @@ public class OJ {
 //        int ret = oj.singleNumber(nums);
 //        System.out.println(ret);
 
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            String excepted = scanner.next();
-            String actual = scanner.next();
+//        Scanner scanner = new Scanner(System.in);
+//        while (scanner.hasNext()) {
+//            String excepted = scanner.next();
+//            String actual = scanner.next();
+//
+//            excepted = excepted.toUpperCase();
+//            actual = actual.toUpperCase();
+//        }
 
-            excepted = excepted.toUpperCase();
-            actual = actual.toUpperCase();
-        }
+//        Scanner input = new Scanner(System.in);
+//        while (input.hasNext()) {
+//            int num = input.nextInt();
+//            int f1 = 0;
+//            int f2 = 1;
+//            while (true) {
+//                int fn = f1 + f2;
+//                if (num >= f2 && num <= fn) {
+//                    int tmp1 = num - f2;
+//                    int tmp2 = fn - num;
+//                    System.out.println(tmp1 > tmp2 ? tmp1 : tmp2);
+//                    return ;
+//                }
+//                f1 = f2;
+//                f2 = fn;
+//            }
+//        }
 
+
+//        Scanner input = new Scanner(System.in);
+//        while (input.hasNextInt()) {
+//            int num = input.nextInt();
+//            int f1 = 0;
+//            int f2 = 1;
+//            while (num > 0){
+//                int fn = f1 + f2;
+//                if (num <= fn && num >= f2) {
+//                    int tmp1 = num - f2;
+//                    int tmp2 = fn - num;
+//                    System.out.println(tmp1 < tmp2 ? tmp1 : tmp2);
+//                    return ;
+//                }
+//                f1 = f2;
+//                f2 = fn;
+//            }
+//        }
+
+//        Scanner input = new Scanner(System.in);
+//        Set<String> set = new HashSet<>();
+//        while (input.hasNext()) {
+//            String food = input.nextLine();
+//            String[] materials = food.split(" ");
+//            for (String x : materials) {
+//                set.add(x);
+//            }
+//        }
+//        System.out.println(set.size());
     }
 }

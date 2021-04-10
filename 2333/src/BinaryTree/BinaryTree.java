@@ -78,7 +78,20 @@ public class BinaryTree {
         System.out.print(root.val);
     }
 
-    // 数节点的个数
+    // 非递归实现前、中、后序遍历
+    public static void preOrderTraversal (Node root) {
+
+    }
+
+    public static void inOrderTraversal (Node root) {
+
+    }
+
+    public static void postOrderTraversal (Node root) {
+
+    }
+
+    // 数节点的个数（方法一）
     public static int count = 0;
     public static void length(Node root) {
         if (root == null) {
@@ -89,7 +102,7 @@ public class BinaryTree {
         length(root.right);
     }
 
-    //
+    // 数节点的个数（方法二）
     public static int length2(Node root) {
         if (root == null) {
             return 0;
