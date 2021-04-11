@@ -30,7 +30,7 @@ public class Review {
         inOrder(root.left);
         System.out.print(root.val);
         inOrder(root.right);
-        
+
     }
 
     public static int index = 0;
