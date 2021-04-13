@@ -14,13 +14,21 @@ public class Review {
     }
     public static void main(String[] args) {
         // 通过先序遍历结果，构建二叉树
-        Scanner input = new Scanner(System.in);
-        while(input.hasNext()) {
-            String line = input.next();
-            Node root = build(line);
-            inOrder(root);
-            System.out.println();
+//        Scanner input = new Scanner(System.in);
+//        while(input.hasNext()) {
+//            String line = input.next();
+//            Node root = build(line);
+//            inOrder(root);
+//            System.out.println();
+//        }
+
+        int n = 10;
+        if (n > 5) {
+            n = 5;
+        } else if (n > 8) {
+            n = 8;
         }
+        System.out.println(n);
     }
 
     private static void inOrder(Node root) {
@@ -51,5 +59,7 @@ public class Review {
         root.right = _build(line);
         return root;
     }
+
+
 
 }
