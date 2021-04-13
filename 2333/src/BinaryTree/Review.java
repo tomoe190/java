@@ -30,7 +30,7 @@ public class Review {
         }
         System.out.println(n);
     }
-    
+
     private static void inOrder(Node root) {
         if (root == null) {
             return ;
@@ -38,7 +38,6 @@ public class Review {
         inOrder(root.left);
         System.out.print(root.val);
         inOrder(root.right);
-
     }
 
     public static int index = 0;
