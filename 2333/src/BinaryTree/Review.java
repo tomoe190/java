@@ -58,7 +58,5 @@ public class Review {
         root.right = _build(line);
         return root;
     }
-
-
-
+    
 }
