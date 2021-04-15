@@ -22,13 +22,28 @@ public class Review {
 //            System.out.println();
 //        }
 
-        int n = 10;
-        if (n > 5) {
-            n = 5;
-        } else if (n > 8) {
-            n = 8;
+//        int n = 10;
+//        if (n > 5) {
+//            n = 5;
+//        } else if (n > 8) {
+//            n = 8;
+//        }
+//        System.out.println(n);
+
+        Scanner scanner = new Scanner(System.in);
+        StringBuffer stringBuffer = new StringBuffer();
+        while (scanner.hasNextLine()) {
+            String input = scanner.nextLine();
+            String[] tmp = input.split(" ");
+            for(int i = tmp.length;i >= 0; i--) {
+                stringBuffer.append(tmp[i]);
+                if (i != 0) {
+                    stringBuffer.append(" ");
+                }
+            }
+
         }
-        System.out.println(n);
+        System.out.println(stringBuffer.toString());
     }
 
     private static void inOrder(Node root) {
@@ -58,5 +73,6 @@ public class Review {
         root.right = _build(line);
         return root;
     }
-    
+
 }
+
