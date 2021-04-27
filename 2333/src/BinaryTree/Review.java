@@ -28,7 +28,6 @@ class class2 extends class1 {
 
 class class3 {
     public void func3() {
-
     }
 }
 
