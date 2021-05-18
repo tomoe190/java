@@ -28,12 +28,10 @@ public class CommandUtil {
                     break;
                 }
                 stdoutTo.write(c);
-
             }
             // 循环结束即文件读写完毕，关闭文件
             stdoutFrom.close();
             stdoutTo.close();
-
         }
 
         // 再针对标准错误进行重定向
