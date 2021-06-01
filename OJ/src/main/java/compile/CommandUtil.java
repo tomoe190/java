@@ -52,5 +52,4 @@ public class CommandUtil {
         int exitCode = process.waitFor();
         return exitCode;
     }
-
 }
