@@ -29,7 +29,6 @@ public class ThreadAdv {
         while(Thread.activeCount()>1) Thread.yield();
         long end2 = System.nanoTime();
         System.out.printf("并行执行耗时：%s毫秒%n", (end2-start2)/1000/1000);
-
     }
     private static void loop(){
         int m = 0;
