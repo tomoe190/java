@@ -8,7 +8,7 @@ public class ThreadSeq {
                 System.out.println(Thread.currentThread().getName());
             }
         },"子线程").start();
-//        Thread.currentThread();
+        Thread.currentThread();
         System.out.println(Thread.currentThread().getName());
     }
 }
