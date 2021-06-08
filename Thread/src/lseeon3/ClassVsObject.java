@@ -12,14 +12,14 @@ public class ClassVsObject {
         System.out.println(p1==p2);//引用地址判断
 
         //类加载：new对象，静态方法调用，类.静态变量，
-        // 如果没有类加载,就会先进行类加载
+        //      如果没有类加载,就会先进行类加载
         //以上：类加载是运行期执行的，并且执行一次
         //类加载做的事情：
         // （1）把class字节码数据加载到Java进程在的方法区（类信息，方法数据信息）
         // （2）在堆里面，生成一个Class对象
         Class c1 = Person.class;
         Class c2 = Person.class;
-        System.out.println(c1==c2);
+        System.out.println(c1==c2);//true
     }
 
     static class Person{
@@ -36,6 +36,10 @@ public class ClassVsObject {
         @Override
         public int hashCode() {
             return Objects.hash(name);
+        }
+
+        public void print(){
+            System.out.println(this);
         }
     }
 }
