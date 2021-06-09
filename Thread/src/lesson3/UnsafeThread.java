@@ -1,4 +1,4 @@
-package lseeon3;
+package lesson3;
 
 
 public class UnsafeThread {

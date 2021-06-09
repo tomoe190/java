@@ -1,4 +1,4 @@
-package lseeon3;
+package lesson3;
 
 import java.util.Objects;
 
@@ -9,7 +9,7 @@ public class ClassVsObject {
         // 判断两个对象是否相等（业务上的）
         System.out.println(p1.equals(p2));
         //判断是否是同一个对象（引用的堆里面的对象，是不是同一个）
-        System.out.println(p1==p2);//引用地址判断
+        System.out.println(p1==p2);//引用地址判断（判断是否为同一个对象）
 
         //类加载：new对象，静态方法调用，类.静态变量，
         //      如果没有类加载,就会先进行类加载

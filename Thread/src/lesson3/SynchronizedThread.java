@@ -1,4 +1,4 @@
-package lseeon3;
+package lesson3;
 
 public class SynchronizedThread {
     private static int COUNT;
