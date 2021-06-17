@@ -67,5 +67,4 @@ public class BreadShop {
             },"消费者["+i+"]").start();
         }
     }
-
 }
