@@ -25,6 +25,9 @@ public class BreadShop {
                                     BreadShop.class.wait();
                                 }
                                 //如果满足生产条件，就生产面包
+//                                if(COUNT + 3 > 100){
+//                                    BreadShop.class.wait();
+//                                }
                                 COUNT += 3;
                                 //生产后，需要通知消费者线程
                                 BreadShop.class.notifyAll();
@@ -53,6 +56,10 @@ public class BreadShop {
                                     BreadShop.class.wait();
                                 }
                                 // 如果满足消费条件，就消费面包
+//                                如果用 if(COUNT == 0){
+//                                    BreadShop.class.wait();
+//                                }
+                                // 当它再次竞争到时间片，它就会继续往下执行
                                 COUNT --;
                                 // 生产后，需要通知生产者线程
                                 BreadShop.class.notifyAll();
