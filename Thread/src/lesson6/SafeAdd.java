@@ -11,11 +11,11 @@ public class SafeAdd {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = 0;i < 1000; i++) {
+                    for (int i = 0; i < 1000; i++) {
                         COUNT.incrementAndGet();
                     }
                 }
             }).start();
-   
-            
+        }
+    }
 }
