@@ -13,7 +13,6 @@ public class SafeAdd {
                 public void run() {
                     for (int i = 0; i < 1000; i++) {
                         COUNT.incrementAndGet();
-                        
                     }
                 }
             }).start();
