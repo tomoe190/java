@@ -56,7 +56,7 @@ public class MyBlockingQueue<E> {
                     while (true) {
                         Integer n = queue.take();
                         System.out.println("消费");
-                        Thread.sleep(30);
+                        Thread.sleep(300);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
