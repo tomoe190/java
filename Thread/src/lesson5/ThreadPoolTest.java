@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 public class ThreadPoolTest {
     public static void main(String[] args) {
-        // 快捷方式创建线程池：工作不要用，面试可能靠
+        // 快捷方式创建线程池：工作不要用，面试可能考
         // 单线程池：只有一个线程运行任务
 //        ExecutorService pool = Executors.newSingleThreadExecutor();
         // 固定大小的线程池：固定数量的线程执行任务
