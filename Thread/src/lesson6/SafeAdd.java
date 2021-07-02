@@ -17,5 +17,7 @@ public class SafeAdd {
                 }
             }).start();
         }
+        while(Thread.activeCount()>1) Thread.yield();
+        System.out.println(COUNT.get());
     }
 }
