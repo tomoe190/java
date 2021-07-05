@@ -10,7 +10,6 @@ public class App {
 //根据Spring配置文件路径创建容器：应用上下文对象
         // 启动容器：加载配置文件，扫描org.example包
         // 该包及下面的子包中的带Spring注解的类都会注册到容器中，称为Bean对象
-
         // 容器可以简答理解为一个Map结构，key为Bean的id或名称，value为bean对象
         ApplicationContext context = new
                 ClassPathXmlApplicationContext("beans.xml");
@@ -23,7 +22,12 @@ public class App {
         LoginController loginController2 = (LoginController) context.getBean("loginController");
         System.out.println(loginController2);
 
-        LoginController.Tmp tmp = context.getBean(LoginController.Tmp.class);
+        // 一个类型，可以注册多个bean对象到容器中
+        // 通过类型获取，容器只能存在该类型一个bean，否则就会报错
+        // 通过名称/id获取，就可以任意
+//        LoginController.Tmp tmp = context.getBean(LoginController.Tmp.class);
+//        System.out.println(tmp);
+        LoginController.Tmp tmp = (LoginController.Tmp) context.getBean("tmpFactory");
         System.out.println(tmp);
 
         AppConfig appConfig = context.getBean(AppConfig.class);
