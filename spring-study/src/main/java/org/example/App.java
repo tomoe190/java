@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.config.AppConfig;
 import org.example.controller.LoginController;
+import org.example.service.LoginService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,6 +30,8 @@ public class App {
 //        System.out.println(tmp);
         LoginController.Tmp tmp = (LoginController.Tmp) context.getBean("tmpFactory");
         System.out.println(tmp);
+
+        LoginService loginService = context.getBean()
 
         AppConfig appConfig = context.getBean(AppConfig.class);
         System.out.println(appConfig);
