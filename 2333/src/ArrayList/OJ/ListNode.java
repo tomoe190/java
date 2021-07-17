@@ -1,8 +1,8 @@
 package ArrayList.OJ;
 
 public class ListNode {
-    int val = 0;
-    ListNode next = null;
+    public int val = 0;
+    public ListNode next = null;
 
     public ListNode() {
     }
